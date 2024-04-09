@@ -10,7 +10,9 @@ POSTRGES_DB = os.getenv('POSTRGES_DB', 'app')
 POSTRGES_HOST = os.getenv('POSTRGES_HOST', '127.0.0.1')
 POSTRGES_PORT = os.getenv('POSTRGES_PORT', '5432')
 
-PG_DSN = f'postrgesql://{POSTRGES_USER}:{POSTRGES_PASSWORD}@{POSTRGES_HOST}:{POSTRGES_PORT}/{POSTRGES_DB}'
+# PG_DSN = f'postrgesql://{POSTRGES_USER}:{POSTRGES_PASSWORD}@{POSTRGES_HOST}:{POSTRGES_PORT}/{POSTRGES_DB}'
+PG_DSN = 'postgresql://appadmin:jdfh8jhtghnjkfrvhyu@localhost:5432/SQL_5'
+
 
 engine = create_engine(PG_DSN)
 Session = sessionmaker(bind=engine)

@@ -36,5 +36,15 @@ class Adv(Base):
     time: Mapped[datetime.datetime] = mapped_column(DateTime, server_default=func.now())
     user: Mapped[int] = mapped_column(Integer, ForeignKey('User.id'))
 
+    @property
+    def json(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            'description':self.description,
+            "time": self.time.isoformat(),
+            'user_id':self.user
+        }
+
 Base.metadata.create_all(bind=engine)
 atexit.register(engine.dispose)
